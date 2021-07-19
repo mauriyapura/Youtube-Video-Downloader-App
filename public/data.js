@@ -1,7 +1,9 @@
-
 const d = document;
 
-const host = "http://localhost:5000/";
+const currentUrl = window.location.href;
+console.log(currentUrl)
+
+const host = currentUrl;
 d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
     
     let videoURL = d.querySelector("#videoURL").value.trim();    
@@ -12,7 +14,7 @@ d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
     fetch(host+"videoInfo?videoURL="+videoURL).then((res)=>{       
         return res.json();
     }).then((data)=>{
-        console.log(data);
+        //console.log(data);
         let detailsNode = {
             thumbnail: d.querySelector(".video-data .thumbnail img"),
             title: d.querySelector(".video-data .info h2"),
@@ -41,9 +43,8 @@ d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
 						</option>
 					`;          
             detailsNode.downloadOptions.innerHTML = html;              
-        };
-                   
-        console.log(html);        
+        };                   
+             
         detailsNode.thumbnail.src = data.videoDetails.thumbnails[data.videoDetails.thumbnails.length - 1].url; 
         detailsNode.title.innerText = data.videoDetails.title;
         detailsNode.description.innerText = data.videoDetails.description;
