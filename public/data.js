@@ -1,7 +1,6 @@
 const d = document;
 
 const currentUrl = window.location.href;
-console.log(currentUrl)
 
 const host = currentUrl;
 d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
@@ -11,13 +10,13 @@ d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
         alert("Please enter Youtube video link");
         return;
     }
-    console.log(host+"videoInfo?videoURL="+videoURL);    
+       
     fetch(host+"videoInfo?videoURL="+videoURL, {
         credentials: "same-origin"
     }).then((res)=>{       
         return res.json();
     }).then((data)=>{
-        //console.log(data);
+        
         let detailsNode = {
             thumbnail: d.querySelector(".video-data .thumbnail img"),
             title: d.querySelector(".video-data .info h2"),
