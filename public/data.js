@@ -10,8 +10,11 @@ d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
     if(videoURL.length == 0){
         alert("Please enter Youtube video link");
         return;
-    }    
-    fetch(host+"videoInfo?videoURL="+videoURL).then((res)=>{       
+    }
+    console.log(host+"videoInfo?videoURL="+videoURL);    
+    fetch(host+"videoInfo?videoURL="+videoURL, {
+        credentials: "same-origin"
+    }).then((res)=>{       
         return res.json();
     }).then((data)=>{
         //console.log(data);
