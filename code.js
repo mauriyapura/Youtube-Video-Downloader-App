@@ -1,4 +1,4 @@
-
+const PORT = process.env.PORT || 5000
 const { response } = require("express");
 const express = require("express");
 const ytdl = require("ytdl-core");
@@ -28,8 +28,8 @@ app.get("/download", (req,res)=>{
     }).pipe(res);
 })
 
-app.listen(5000, ()=>{
-    console.log(`Server Listening on port 5000`);
+app.listen(PORT, ()=>{
+    console.log(`Server Listening on port ${PORT}`);
 });
 
 
