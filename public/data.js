@@ -64,7 +64,8 @@ d.querySelector("#get-video-info-btn").addEventListener("click",()=>{
 d.querySelector("#download-btn").addEventListener("click", ()=>{
     let videoURL = d.querySelector("#video-url").value;
     let itag = d.querySelector("#download-options").value;
-    window.open(host + "download?videoURL=" + videoURL + "&itag="+itag);
+    let videoName = d.querySelector("#title1").innerHTML;
+    window.open(host + "download?videoURL=" + videoURL + "&itag="+itag + "&videoName="+videoName);
 })
 
 
